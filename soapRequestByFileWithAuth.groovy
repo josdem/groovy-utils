@@ -8,7 +8,8 @@ assert file.exists()
 String url = 'http://localhost:9090/codenotfound/ws/helloworld'
 
 def client = new SOAPClient(url)
-Map requestParams = [ headers: [ Authorization: 'Basic Y29kZW5vdGZvdW5kOnA0NTV3MHJk' ] ]
+def credentials = "codenotfound:p455w0rd".bytes.encodeBase64().toString()
+Map requestParams = [ headers: [ Authorization: "Basic $credentials" ] ]
 def response = client.send(requestParams, file.text)
 
 print response.text
