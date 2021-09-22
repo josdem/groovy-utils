@@ -3,7 +3,7 @@
 import wslite.rest.RESTClient
 
 def client = new RESTClient("http://localhost:8080/persons/")
-def response = client.put(headers:["Content-Type":"application/json"]){
+def response = client.put(path:"josdem", headers:["Content-Type":"application/json"]){
     json: ["nickname":"josdem","email":"jose.morales@dominos.com"]
 }
 
